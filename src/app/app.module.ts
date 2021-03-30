@@ -15,6 +15,9 @@ import { CustomProductAreaComponent } from './theme-assets/custom-product-area/c
 import { BrandAreaComponent } from './theme-assets/brand-area/brand-area.component';
 import { FooterWidgetsComponent } from './theme-assets/footer-widgets/footer-widgets.component';
 import { ModalBoxComponent } from './theme-assets/modal-box/modal-box.component';
+import { SellerDashboardComponent } from './seller/seller-dashboard/seller-dashboard.component';
+import { BuyerDashboardComponent } from './buyer/buyer-dashboard/buyer-dashboard.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ModalBoxComponent } from './theme-assets/modal-box/modal-box.component'
     CustomProductAreaComponent,
     BrandAreaComponent,
     FooterWidgetsComponent,
-    ModalBoxComponent
+    ModalBoxComponent,
+    SellerDashboardComponent,
+    BuyerDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
