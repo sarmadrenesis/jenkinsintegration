@@ -1,19 +1,17 @@
 
-<app-offcanvas-menu></app-offcanvas-menu>
-<app-header></app-header>
-<app-slider></app-slider>
-<app-banner-area></app-banner-area>
-<app-product-five></app-product-five>
-<app-banner-fullwidth></app-banner-fullwidth>
-<app-product-area></app-product-area>
-<app-blog-section></app-blog-section>
-<app-custom-product-area></app-custom-product-area>
-<app-brand-area></app-brand-area>
-<app-footer-widgets></app-footer-widgets>
-<app-modal-box></app-modal-box>
+<div *ngIf="router.url === '/'">
+    <app-offcanvas-menu></app-offcanvas-menu>
+    <app-header></app-header>
+    <app-slider></app-slider>
+    <app-banner-area></app-banner-area>
+    <app-product-five></app-product-five>
+    <app-banner-fullwidth></app-banner-fullwidth>
+    <app-product-area></app-product-area>
+    <app-blog-section></app-blog-section>
+    <app-custom-product-area></app-custom-product-area>
+    <app-brand-area></app-brand-area>
+    <app-footer-widgets></app-footer-widgets>
+    <app-modal-box></app-modal-box>
+</div>
 
-<router-outlet></router-outlet>
-
-
-
-
+<router-outlet *ngIf="router.url !== '/'"></router-outlet>

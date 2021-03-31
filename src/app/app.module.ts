@@ -18,6 +18,8 @@ import { ModalBoxComponent } from './theme-assets/modal-box/modal-box.component'
 import { SellerDashboardComponent } from './seller/seller-dashboard/seller-dashboard.component';
 import { BuyerDashboardComponent } from './buyer/buyer-dashboard/buyer-dashboard.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { RegisterComponent } from './core/register/register.component';
+import { LoginComponent } from './core/login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     ModalBoxComponent,
     SellerDashboardComponent,
     BuyerDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
