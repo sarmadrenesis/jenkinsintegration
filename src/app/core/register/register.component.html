@@ -6,23 +6,65 @@
             <div class="col-lg-6 col-md-6">
                 <div class="account_form register">
                     <h2>Register</h2>
-                    <form action="#">
-                        <p>   
-                            <label>Email address  <span>*</span></label>
-                            <input type="text">
-                         </p>
-                         <p>   
+                    <form [formGroup]="registerForm">
+                        <p>
+                            <label>First Name <span>*</span></label>
+                            <input type="text" parentForm="registerForm" formControlName="firstName">
+                        </p>
+                        <div *ngIf="submitted && f.firstName.errors">
+                            <ul role="alert" *ngIf="f.firstName.errors.required">
+                                <li class="error">* first name is required</li>
+                            </ul>
+                        </div>
+                        <p>
+                            <label>Last Name <span>*</span></label>
+                            <input type="text" parentForm="registerForm" formControlName="lastName">
+                        </p>
+                        <div *ngIf="submitted && f.lastName.errors">
+                            <ul role="alert" *ngIf="f.lastName.errors.required">
+                                <li class="error">* last name is required</li>
+                            </ul>
+                        </div>
+                        <p>
+                            <label>Username or email <span>*</span></label>
+                            <input type="text" parentForm="registerForm" formControlName="email">
+                        </p>
+                        <div *ngIf="submitted && f.email.errors">
+                            <ul role="alert" *ngIf="f.email.errors.required">
+                                <li class="error">* email is required</li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            <label>Role <span>*</span></label>
+                            <select name="select" required class="form-control" formControlName="company">
+                                <option value="">Select Role </option>
+                                <option *ngFor="let food of foods" [value]="food.value">{{food.viewValue}}</option>
+                            </select>
+                        </p>
+                        <div class="help-block" *ngIf="submitted && f.company.errors">
+                            <ul role="alert" *ngIf="f.company.errors.required">
+                                <li>company is required</li>
+                            </ul>
+                        </div>
+
+                        <p>
                             <label>Passwords <span>*</span></label>
-                            <input type="password">
-                         </p>
+                            <input type="password" parentForm="registerForm" formControlName="password">
+                        </p>
+                        <div *ngIf="submitted && f.password.errors">
+                            <ul role="alert" *ngIf="f.password.errors.required">
+                                <li class="error">* password is required</li>
+                            </ul>
+                        </div>
                         <div class="login_submit">
-                            <button type="submit">Register</button>
+                            <button (click)="save()">Register</button>
                         </div>
                     </form>
-                </div>    
+                </div>
             </div>
             <div class="col-lg-3 col-md-3"></div>
             <!--register area end-->
         </div>
-    </div>    
+    </div>
 </div>

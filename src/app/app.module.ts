@@ -20,6 +20,9 @@ import { BuyerDashboardComponent } from './buyer/buyer-dashboard/buyer-dashboard
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { RegisterComponent } from './core/register/register.component';
 import { LoginComponent } from './core/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { LoginComponent } from './core/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule, BrowserAnimationsModule,
+    DemoMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
