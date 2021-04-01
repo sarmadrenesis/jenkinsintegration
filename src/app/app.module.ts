@@ -23,6 +23,10 @@ import { LoginComponent } from './core/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material-module';
+import { TopBarComponent } from './core/top-bar/top-bar.component';
+import { SideBarComponent } from './core/side-bar/side-bar.component';
+import { FooterBarComponent } from './core/footer-bar/footer-bar.component';
+import { MainContainerBarComponent } from './core/main-container-bar/main-container-bar.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { DemoMaterialModule } from './material-module';
     BuyerDashboardComponent,
     AdminDashboardComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TopBarComponent,
+    SideBarComponent,
+    FooterBarComponent,
+    MainContainerBarComponent
   ],
   imports: [
     BrowserModule,

@@ -37,16 +37,16 @@
 
                         <p>
                             <label>Role <span>*</span></label>
-                            <select name="select" required class="form-control" formControlName="company">
+                            <select name="select" required class="form-control" formControlName="role">
                                 <option value="">Select Role </option>
                                 <option *ngFor="let food of foods" [value]="food.value">{{food.viewValue}}</option>
                             </select>
                         </p>
-                        <div class="help-block" *ngIf="submitted && f.company.errors">
+                        <!-- <div class="help-block" *ngIf="submitted && f.company.errors">
                             <ul role="alert" *ngIf="f.company.errors.required">
                                 <li>company is required</li>
                             </ul>
-                        </div>
+                        </div> -->
 
                         <p>
                             <label>Passwords <span>*</span></label>
