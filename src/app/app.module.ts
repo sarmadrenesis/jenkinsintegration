@@ -27,6 +27,10 @@ import { TopBarComponent } from './core/top-bar/top-bar.component';
 import { SideBarComponent } from './core/side-bar/side-bar.component';
 import { FooterBarComponent } from './core/footer-bar/footer-bar.component';
 import { MainContainerBarComponent } from './core/main-container-bar/main-container-bar.component';
+import { UsersComponent } from './admin/users/users.component';
+import { ButtonRenderComponent } from './core/ag-grid/button-render/button-render.component';
+import { NameRenderComponent } from './core/ag-grid/name-render/name-render.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -51,14 +55,19 @@ import { MainContainerBarComponent } from './core/main-container-bar/main-contai
     TopBarComponent,
     SideBarComponent,
     FooterBarComponent,
-    MainContainerBarComponent
+    MainContainerBarComponent,
+    UsersComponent,
+    ButtonRenderComponent,
+    NameRenderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule, BrowserAnimationsModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    AgGridModule.withComponents([NameRenderComponent]),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

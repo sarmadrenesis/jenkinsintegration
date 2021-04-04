@@ -5,11 +5,14 @@ import { BuyerDashboardComponent } from './buyer/buyer-dashboard/buyer-dashboard
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { RegisterComponent } from './core/register/register.component';
 import { LoginComponent } from './core/login/login.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
-  {path : 'seller' , component : SellerDashboardComponent},
-  {path : 'buyer' , component : BuyerDashboardComponent},
-  {path : 'admin' , component : AdminDashboardComponent},
+  {path : 'seller-dashboard' , component : SellerDashboardComponent},
+  {path : 'buyer-dashboard' , component : BuyerDashboardComponent},
+  {path : 'admin-dashboard' , component : AdminDashboardComponent , children:[ 
+    {path : 'users' , component:UsersComponent }
+  ] },
   {path : 'login' , component : LoginComponent},
   {path : 'register' , component : RegisterComponent},
 ];
