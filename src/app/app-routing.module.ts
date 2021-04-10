@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { RegisterComponent } from './core/register/register.component';
 import { LoginComponent } from './core/login/login.component';
 import { UsersComponent } from './admin/users/users.component';
+import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 
 const routes: Routes = [
   {path : 'seller-dashboard' , component : SellerDashboardComponent},
@@ -18,6 +19,10 @@ const routes: Routes = [
   {path : 'register' , component : RegisterComponent,data: { mode: 'add' } },
   {path : 'register:view/:id' , component : RegisterComponent,data: { mode: 'view' } },
   {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } },
+
+  {path : 'seller' , component : SellerComponent},
+
+
 ];
 
 @NgModule({

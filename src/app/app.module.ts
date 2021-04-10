@@ -33,6 +33,7 @@ import { NameRenderComponent } from './core/ag-grid/name-render/name-render.comp
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
+import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-render
     MainContainerBarComponent,
     UsersComponent,
     ActionsCellRendererComponent,
-    NameRenderComponent
+    NameRenderComponent,
+    SellerComponent
   ],
   imports: [
     BrowserModule,
