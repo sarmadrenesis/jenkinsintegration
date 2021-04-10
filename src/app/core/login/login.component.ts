@@ -44,9 +44,12 @@ export class LoginComponent implements OnInit {
           text: resp.message,
         });
         localStorage.setItem('token', resp.data)
-        // window.open('/user-dashboard')
-        console.log('my router..', this.router)
-        this.router.navigateByUrl('/user-dashboard');
+        this.apiService.get(`roles/findOne/${resp.role}`).subscribe(result=>{
+          if(result.data.roleName === 'admin'){
+            this.router.navigateByUrl('/admin-dashboard');
+          }
+        })
+       
       } 
     })  
 
