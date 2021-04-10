@@ -52,10 +52,12 @@
                             <label>Passwords <span>*</span></label>
                             <input type="password" parentForm="registerForm" formControlName="password">
                         </p>
-                        <div *ngIf="submitted && f.password.errors">
-                            <ul role="alert" *ngIf="f.password.errors.required">
-                                <li class="error">* password is required</li>
-                            </ul>
+                        <div *ngIf="heading !== 'View User' && heading !== 'Edit User'">
+                            <div *ngIf="submitted && f.password.errors">
+                                <ul role="alert" *ngIf="f.password.errors.required">
+                                    <li class="error">* password is required</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="login_submit" *ngIf="heading !== 'View User' ">

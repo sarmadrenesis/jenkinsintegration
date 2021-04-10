@@ -126,10 +126,9 @@ export class RegisterComponent implements OnInit {
       firstName : this.registerForm.controls.firstName.value,
       lastName : this.registerForm.controls.lastName.value,
       role : this.registerForm.controls.role.value,
-      password: this.registerForm.controls.password.value,
     }
-    this.apiService.add(`users/editSingleUser/${this.activatedRoute.snapshot.params.id}`,finalObject).subscribe((resp:any)=>{
-      if (resp.type === 'success') {
+    this.apiService.edit(`users/editSingleUser/${this.activatedRoute.snapshot.params.id}`,finalObject).subscribe((resp:any)=>{
+      if (resp.status === 'success') {
         Swal.fire({
           icon: 'success',
           title: 'Done.!',

@@ -1,9 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ActionsCellRendererComponent } from 'src/app/core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 import { RegisterComponent } from 'src/app/core/register/register.component';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
+import { environment } from './../../../environments/environment'
 
 @Component({
   selector: 'app-users',
@@ -26,7 +29,7 @@ export class UsersComponent implements OnInit {
     // resizable: true
   }
     
-    constructor(private apiService:ApiService,public router:Router,public dialog: MatDialog,public activatedRoute: ActivatedRoute) {  
+    constructor(private apiService:ApiService,public router:Router,public dialog: MatDialog,public activatedRoute: ActivatedRoute, private http: HttpClient) {  
     this.frameworkComponents = {
       buttonRenderer: ActionsCellRendererComponent ,
     };
@@ -71,8 +74,29 @@ export class UsersComponent implements OnInit {
     this.router.navigateByUrl(`register:edit/${params.rowData._id}`)
   }
 
-  onDelete(){
-
+  onDelete(params: { rowData: { _id: any; }; }){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete(`${environment.baseUrl}/users/deleteSingleUser/${params.rowData._id}`).subscribe((resp:any)=>{
+          if(resp.status === 'success'){
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+          this.getAllUsers()
+        })
+      }
+    })
   }
 
 
