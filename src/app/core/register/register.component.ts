@@ -100,7 +100,7 @@ export class RegisterComponent implements OnInit {
       password: this.registerForm.controls.password.value,
     }
     this.apiService.add(`users/addUser`,finalObject).subscribe((resp:any)=>{
-      if (resp.type === 'success') {
+      if (resp.status === 'success') {
         Swal.fire({
           icon: 'success',
           title: 'Done.!',
