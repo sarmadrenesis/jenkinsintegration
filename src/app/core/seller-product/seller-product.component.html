@@ -8,31 +8,48 @@
                     <h2>Add New Product</h2>
                     <form [formGroup]="ProductForm">
                         <p>
-                            <label>Username or email <span>*</span></label>
-                            <input type="text" parentForm="ProductForm" formControlName="email">
+                            <label>Name <span>*</span></label>
+                            <input type="text" parentForm="ProductForm" formControlName="name">
                         </p>
-                        <div *ngIf="submitted && f.email.errors">
-                            <ul role="alert" *ngIf="f.email.errors.required">
-                                <li class="error">* email is required</li>
+                        <div *ngIf="submitted && f.name.errors">
+                            <ul role="alert" *ngIf="f.name.errors.required">
+                                <li class="error">* name is required</li>
                             </ul>
                         </div>
                         <p>
-                            <label>Passwords <span>*</span></label>
-                            <input type="password" parentForm="ProductForm" formControlName="password">
+                            <label>Description <span>*</span></label>
+                            <input type="text" parentForm="ProductForm" formControlName="description">
                         </p>
-                        <div *ngIf="submitted && f.password.errors">
-                            <ul role="alert" *ngIf="f.password.errors.required">
-                                <li class="error">* password is required</li>
+                        <div *ngIf="submitted && f.description.errors">
+                            <ul role="alert" *ngIf="f.description.errors.required">
+                                <li class="error">* description is required</li>
                             </ul>
                         </div>
-                        <div class="login_submit">
-                            <a href="#">Lost your password?</a>
-                            <label for="remember">
-                                <input id="remember" type="checkbox">
-                                Remember me
-                            </label>
-                            <button  (click)="save()" >login</button>
 
+                        <p>
+                            <label>Price <span>*</span></label>
+                            <input type="text" parentForm="ProductForm" formControlName="price">
+                        </p>
+                        <div *ngIf="submitted && f.price.errors">
+                            <ul role="alert" *ngIf="f.price.errors.required">
+                                <li class="error">* price is required</li>
+                            </ul>
+                        </div>
+
+                       <p>
+                        <label>Image <span>*</span></label>
+                        <input type='file' (change)="onSelectFile($event)" parentForm="ProductForm" formControlName="image"/>
+                        <img [src]="url" *ngIf="format==='image' && url" height="200"> <br/>
+                       </p>
+                       <div *ngIf="submitted && f.image.errors">
+                            <ul role="alert" *ngIf="f.image.errors.required">
+                                <li class="error">* image is required</li>
+                            </ul>
+                        </div>
+                           
+
+                        <div class="login_submit">
+                            <button  (click)="save()" >Submit</button>
                         </div>
 
                     </form>
@@ -43,3 +60,5 @@
         </div>
     </div>
 </div>
+
+  
