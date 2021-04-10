@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { ApiService } from './../../services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: any
   submitted = false;
 
-  constructor() { }
+  constructor(private apiService : ApiService,public router: Router) { }
 
   ngOnInit(): void {
 
@@ -29,6 +32,24 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    const finalObject = {
+      email : this.loginForm.controls.email.value,
+      password: this.loginForm.controls.password.value,
+    }
+    this.apiService.add(`users/login`,finalObject).subscribe((resp:any)=>{
+      if (resp.type === 'success') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Done.!',
+          text: resp.message,
+        });
+        localStorage.setItem('token', resp.data)
+        // window.open('/user-dashboard')
+        console.log('my router..', this.router)
+        this.router.navigateByUrl('/user-dashboard');
+      } 
+    })  
+
   }
 
 }

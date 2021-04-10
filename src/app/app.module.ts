@@ -31,6 +31,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { ButtonRenderComponent } from './core/ag-grid/button-render/button-render.component';
 import { NameRenderComponent } from './core/ag-grid/name-render/name-render.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { AgGridModule } from 'ag-grid-angular';
     ReactiveFormsModule, BrowserAnimationsModule,
     DemoMaterialModule,
     AgGridModule.withComponents([NameRenderComponent]),
+    HttpClientModule,
 
   ],
   providers: [],
