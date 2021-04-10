@@ -1,0 +1,45 @@
+<div class="customer_login">
+    <div class="container">
+        <div class="row">
+            <!--login area start-->
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form">
+                    <h2>Add New Product</h2>
+                    <form [formGroup]="ProductForm">
+                        <p>
+                            <label>Username or email <span>*</span></label>
+                            <input type="text" parentForm="ProductForm" formControlName="email">
+                        </p>
+                        <div *ngIf="submitted && f.email.errors">
+                            <ul role="alert" *ngIf="f.email.errors.required">
+                                <li class="error">* email is required</li>
+                            </ul>
+                        </div>
+                        <p>
+                            <label>Passwords <span>*</span></label>
+                            <input type="password" parentForm="ProductForm" formControlName="password">
+                        </p>
+                        <div *ngIf="submitted && f.password.errors">
+                            <ul role="alert" *ngIf="f.password.errors.required">
+                                <li class="error">* password is required</li>
+                            </ul>
+                        </div>
+                        <div class="login_submit">
+                            <a href="#">Lost your password?</a>
+                            <label for="remember">
+                                <input id="remember" type="checkbox">
+                                Remember me
+                            </label>
+                            <button  (click)="save()" >login</button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+            <!--login area start-->
+        </div>
+    </div>
+</div>

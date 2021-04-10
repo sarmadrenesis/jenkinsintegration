@@ -34,6 +34,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
+import { SellerProductComponent } from './core/seller-product/seller-product.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SellerComponent } from './theme-assets/pages/seller/seller.component';
     UsersComponent,
     ActionsCellRendererComponent,
     NameRenderComponent,
-    SellerComponent
+    SellerComponent,
+    SellerProductComponent
   ],
   imports: [
     BrowserModule,

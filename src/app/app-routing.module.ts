@@ -7,6 +7,8 @@ import { RegisterComponent } from './core/register/register.component';
 import { LoginComponent } from './core/login/login.component';
 import { UsersComponent } from './admin/users/users.component';
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
+import { SellerProductComponent } from './core/seller-product/seller-product.component';
+
 
 const routes: Routes = [
   {path : 'seller-dashboard' , component : SellerDashboardComponent},
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } },
 
   {path : 'seller' , component : SellerComponent},
+  {path : 'sellerProduct' , component : SellerProductComponent},
 
 
 ];
