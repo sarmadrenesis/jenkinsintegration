@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminDashboardService } from 'src/app/services/admin-dashboard.service';
+import { GridService } from 'src/app/services/grid.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-button-render',
-  templateUrl: './button-render.component.html',
-  styleUrls: ['./button-render.component.scss']
+  selector: 'app-actions-cell-renderer',
+  templateUrl: './actions-cell-renderer.component.html',
+  styleUrls: ['./actions-cell-renderer.component.scss']
 })
-export class ButtonRenderComponent {
-
+export class ActionsCellRendererComponent {
   params :any;
   label: string | undefined;
 

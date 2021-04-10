@@ -28,10 +28,11 @@ import { SideBarComponent } from './core/side-bar/side-bar.component';
 import { FooterBarComponent } from './core/footer-bar/footer-bar.component';
 import { MainContainerBarComponent } from './core/main-container-bar/main-container-bar.component';
 import { UsersComponent } from './admin/users/users.component';
-import { ButtonRenderComponent } from './core/ag-grid/button-render/button-render.component';
+// import 'ag-grid-enterprise';
 import { NameRenderComponent } from './core/ag-grid/name-render/name-render.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterBarComponent,
     MainContainerBarComponent,
     UsersComponent,
-    ButtonRenderComponent,
+    ActionsCellRendererComponent,
     NameRenderComponent
   ],
   imports: [
@@ -67,7 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule, 
     ReactiveFormsModule, BrowserAnimationsModule,
     DemoMaterialModule,
-    AgGridModule.withComponents([NameRenderComponent]),
+    AgGridModule.withComponents([ActionsCellRendererComponent]),
     HttpClientModule,
 
   ],
