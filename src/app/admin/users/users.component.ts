@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ActionsCellRendererComponent } from 'src/app/core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 import { RegisterComponent } from 'src/app/core/register/register.component';
 import { ApiService } from 'src/app/services/api.service';
@@ -15,6 +15,9 @@ export class UsersComponent implements OnInit {
   rowData : any
   columnDefs :any;
   showGrid : any;
+  mode: any;
+  heading: any
+
   defaultColDef = {
     // sortable: true,
     // filter: 'agTextColumnFilter',
@@ -22,7 +25,8 @@ export class UsersComponent implements OnInit {
     // unSortIcon: true,
     // resizable: true
   }
-  constructor(private apiService:ApiService,public router:Router,public dialog: MatDialog) { 
+    
+    constructor(private apiService:ApiService,public router:Router,public dialog: MatDialog,public activatedRoute: ActivatedRoute) {  
     this.frameworkComponents = {
       buttonRenderer: ActionsCellRendererComponent ,
     };
@@ -39,6 +43,7 @@ export class UsersComponent implements OnInit {
         view: this.onView.bind(this)
       },},
     ];
+  
   }
 
   ngOnInit(): void {
@@ -59,30 +64,15 @@ export class UsersComponent implements OnInit {
   
 
   onView(params: { rowData: { _id: any; }; }) {
-    const dialogRef = this.dialog.open(RegisterComponent , {
-      width: "80%",
-      height: "90%",
-      data: { data: params.rowData._id, type: false  },
-    });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    this.router.navigateByUrl(`register:view/${params.rowData._id}`)
   }
 
   onEdit(params: { rowData: { _id: any; }; }) {
-    const dialogRef = this.dialog.open(RegisterComponent , {
-      width: "80%",
-      height: "90%",
-      data: { data: params.rowData._id, type: true  },
-    });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-      // this.getAllLadgersMenu()
-    // });
+    this.router.navigateByUrl(`register:edit/${params.rowData._id}`)
   }
 
   onDelete(){
-    
+
   }
 
 

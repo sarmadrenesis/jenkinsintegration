@@ -1,11 +1,11 @@
 <div class="customer_login">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="!isPageLoading">
             <!--register area start-->
             <div class="col-lg-3 col-md-3"></div>
             <div class="col-lg-6 col-md-6">
                 <div class="account_form register">
-                    <h2>Register</h2>
+                    <h2>{{heading}}</h2>
                     <form [formGroup]="registerForm">
                         <p>
                             <label>First Name <span>*</span></label>
@@ -48,7 +48,7 @@
                             </ul>
                         </div>
 
-                        <p>
+                        <p *ngIf="heading !== 'View User' && heading !== 'Edit User'">
                             <label>Passwords <span>*</span></label>
                             <input type="password" parentForm="registerForm" formControlName="password">
                         </p>
@@ -58,8 +58,9 @@
                             </ul>
                         </div>
 
-                        <div class="login_submit">
-                            <button (click)="save()">Register</button>
+                        <div class="login_submit" *ngIf="heading !== 'View User' ">
+                            <button (click)="update()" *ngIf="heading !== 'Add User'">Update</button>
+                            <button (click)="save()" *ngIf="heading !== 'Edit User'">Register</button>
                         </div>
                     </form>
                 </div>
