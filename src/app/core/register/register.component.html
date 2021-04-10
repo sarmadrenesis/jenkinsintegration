@@ -39,14 +39,14 @@
                             <label>Role <span>*</span></label>
                             <select name="select" required class="form-control" formControlName="role">
                                 <option value="">Select Role </option>
-                                <option *ngFor="let food of foods" [value]="food.value">{{food.viewValue}}</option>
+                                <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
                             </select>
                         </p>
-                        <!-- <div class="help-block" *ngIf="submitted && f.company.errors">
-                            <ul role="alert" *ngIf="f.company.errors.required">
-                                <li>company is required</li>
+                        <div class="help-block" *ngIf="submitted && f.role.errors">
+                            <ul role="alert" *ngIf="f.role.errors.required">
+                                <li class="error">* role is required</li>
                             </ul>
-                        </div> -->
+                        </div>
 
                         <p>
                             <label>Passwords <span>*</span></label>
@@ -57,6 +57,7 @@
                                 <li class="error">* password is required</li>
                             </ul>
                         </div>
+
                         <div class="login_submit">
                             <button (click)="save()">Register</button>
                         </div>

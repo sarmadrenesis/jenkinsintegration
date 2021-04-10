@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +12,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerForm: any
   submitted = false;
-
-  foods:any
+  roles:any
   
-  constructor() { 
-    this.foods = [
-      {value: 'steak-0', viewValue: 'Steak'},
-      {value: 'pizza-1', viewValue: 'Pizza'},
-      {value: 'tacos-2', viewValue: 'Tacos'}
-    ];
+  constructor( private apiService:ApiService, public router:Router) { 
+    this.roles = []
   }
 
   ngOnInit(): void {
+    this.getAllRoles();
     this.registerForm = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
@@ -28,7 +27,16 @@ export class RegisterComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       role :  new FormControl('', Validators.required),
     })
+  }
 
+  getAllRoles(){
+    this.apiService.get(`roles/allRoles`).subscribe(result=>{
+     result.data.forEach((element:any) => {
+       if(element.roleName !== 'superAdmin'){
+         this.roles.push({"id": element._id, "name": element.roleName})
+       }
+     });
+    })
   }
 
   get f() { return this.registerForm.controls; }
@@ -38,5 +46,27 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+    const finalObject = {
+      email : this.registerForm.controls.email.value,
+      firstName : this.registerForm.controls.firstName.value,
+      lastName : this.registerForm.controls.lastName.value,
+      role : this.registerForm.controls.role.value,
+      password: this.registerForm.controls.password.value,
+    }
+    this.apiService.add(`users/addUser`,finalObject).subscribe((resp:any)=>{
+      if (resp.type === 'success') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Done.!',
+          text: resp.message,
+        });
+        this.router.navigateByUrl('/');
+      }else{
+        Swal.fire({
+          icon: 'error',
+          text: resp.message,
+        });
+      }
+    })      
   }
 }

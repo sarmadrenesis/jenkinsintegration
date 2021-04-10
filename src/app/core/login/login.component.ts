@@ -49,7 +49,11 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/admin-dashboard');
           }
         })
-       
+      }else{
+        Swal.fire({
+          icon: 'error',
+          text: resp.message,
+        });
       } 
     })  
 
