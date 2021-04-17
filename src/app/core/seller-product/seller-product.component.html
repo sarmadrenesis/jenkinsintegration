@@ -35,12 +35,15 @@
                                 <li class="error">* price is required</li>
                             </ul>
                         </div>
-
+                        
+                        
                        <p>
                         <label>Image <span>*</span></label>
-                        <input type='file' (change)="onSelectFile($event)" parentForm="ProductForm" formControlName="image"/>
-                        <img [src]="url" *ngIf="format==='image' && url" height="200"> <br/>
+                        <input type="file" accept="image/*" (change)="changeListener($event)" parentForm="ProductForm" formControlName="image">
                        </p>
+                       <div *ngIf="image">
+                        <img src="{{image}}" alt="">
+                      </div>
                        <div *ngIf="submitted && f.image.errors">
                             <ul role="alert" *ngIf="f.image.errors.required">
                                 <li class="error">* image is required</li>

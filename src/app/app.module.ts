@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffcanvasMenuComponent } from './theme-assets/offcanvas-menu/offcanvas-menu.component';
@@ -31,7 +32,7 @@ import { UsersComponent } from './admin/users/users.component';
 // import 'ag-grid-enterprise';
 import { NameRenderComponent } from './core/ag-grid/name-render/name-render.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 import { SellerProductComponent } from './core/seller-product/seller-product.component';
@@ -76,7 +77,10 @@ import { SellerProductComponent } from './core/seller-product/seller-product.com
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
