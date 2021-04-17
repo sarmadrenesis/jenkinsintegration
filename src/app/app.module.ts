@@ -36,6 +36,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-renderer/actions-cell-renderer.component';
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 import { SellerProductComponent } from './core/seller-product/seller-product.component';
+import { PopupComponent } from './core/popup/popup.component';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { SellerProductComponent } from './core/seller-product/seller-product.com
     ActionsCellRendererComponent,
     NameRenderComponent,
     SellerComponent,
-    SellerProductComponent
+    SellerProductComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

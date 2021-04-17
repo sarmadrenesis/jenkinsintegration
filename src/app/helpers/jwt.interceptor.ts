@@ -8,6 +8,7 @@ export class JwtInterceptor implements HttpInterceptor {
     constructor(
         private authenticationService: AuthenticationService
         ) {}
+
         intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let token = this.authenticationService.getUserToken();
         if( token ){    
@@ -17,6 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
+
         return next.handle(request);
     }
 }
