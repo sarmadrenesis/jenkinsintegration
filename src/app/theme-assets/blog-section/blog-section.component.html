@@ -3,19 +3,19 @@
         <div class="row">
             <div class="col-12">
                 <div class="section_title">
-                    <p>Our recent articles about Organic</p>
+                    <h1>{{pageLoading}}</h1>
+                    <p>Our recent articles about Organic</p>   
                     <h2>Our Blog Posts</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="row" *ngIf="!pageLoading">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4" *ngFor="let item of allProducts">
                 <div class="card">
-                    <img src="https://www.w3schools.com/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">
-                    <h1>Name</h1>
-                    <p class="price">$19.99</p>
-                    <p>Description : .....  Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim
-                        lorem jeansum.</p>
+                    <img src="{{item.image}}" alt="Denim Jeans" style="width:100%">
+                    <h1>{{item.name}} Posted By : {{item.addedBy.firstName}} {{item.addedBy.lastName}}</h1>
+                    <p class="price">{{item.price}}$</p>
+                    <p>{{item.description}}</p>
                     <p><button (click)="addCart()">Add to Cart</button></p>
                 </div>
             </div>

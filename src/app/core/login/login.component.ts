@@ -14,17 +14,22 @@ export class LoginComponent implements OnInit {
   loginForm: any
   submitted = false;
 
-  constructor(private apiService : ApiService,public router: Router) { }
+  constructor(private apiService: ApiService, public router: Router) {  }
 
   ngOnInit(): void {
-
+    this.checkToken()
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     })
 
   }
-
+  checkToken(){
+    let token = localStorage.getItem('token')
+    if(token){
+      this.router.navigateByUrl('/')
+    }
+  }
   get f() { return this.loginForm.controls; }
 
   save() {
@@ -33,10 +38,10 @@ export class LoginComponent implements OnInit {
       return;
     }
     const finalObject = {
-      email : this.loginForm.controls.email.value,
+      email: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value,
     }
-    this.apiService.add(`users/login`,finalObject).subscribe((resp:any)=>{
+    this.apiService.add(`users/login`, finalObject).subscribe((resp: any) => {
       if (resp.type === 'success') {
         Swal.fire({
           icon: 'success',
@@ -44,18 +49,16 @@ export class LoginComponent implements OnInit {
           text: resp.message,
         });
         localStorage.setItem('token', resp.data)
-        this.apiService.get(`roles/findOne/${resp.role}`).subscribe(result=>{
-          if(result.data.roleName === 'admin'){
-            this.router.navigateByUrl('/admin-dashboard');
-          }
-        })
-      }else{
+        if (resp.role.roleName === 'admin') {
+          this.router.navigateByUrl('/admin-dashboard')
+        }
+      } else {
         Swal.fire({
           icon: 'error',
           text: resp.message,
         });
-      } 
-    })  
+      }
+    })
 
   }
 

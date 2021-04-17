@@ -24,8 +24,7 @@ const routes: Routes = [
 
   {path : 'seller' , component : SellerComponent},
   {path : 'sellerProduct' , component : SellerProductComponent},
-
-
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
