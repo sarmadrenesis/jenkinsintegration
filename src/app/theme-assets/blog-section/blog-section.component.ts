@@ -12,4 +12,7 @@ export class BlogSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addCart(){
+    alert('testing')
+  }
 }
