@@ -23,7 +23,6 @@ export class BlogSectionComponent implements OnInit {
     this.apiService.get('sellerPro/all').subscribe((resp)=>{
       this.allProducts = resp.data
       this.pageLoading = false
-      console.log(this.allProducts)
     })
   }
 

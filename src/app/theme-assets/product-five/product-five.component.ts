@@ -12,13 +12,8 @@ export class ProductFiveComponent implements OnInit {
   constructor(public router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // this.getAllProducts()
+
   }
-  // getAllProducts(){
-  //   this.apiService.get('sellerPro/all').subscribe((resp)=>{
-  //     console.log(resp)
-  //   })
-  // }
 
 
 }

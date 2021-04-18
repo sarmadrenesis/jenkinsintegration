@@ -34,15 +34,12 @@ export class SellerProductComponent implements OnInit {
         .get(`sellerPro/findOne/${this.activatedRoute.snapshot.params.id}`)
         .subscribe(
           (data) => {
-            console.log(data)
             this.ProductForm = new FormGroup({
               name: new FormControl(data.data.name),
               description: new FormControl(data.data.description),
-              // image: new FormControl(data.data.image),
               price: new FormControl(data.data.price),
             });
             this.image = data.data.image
-            console.log(this.image,'this.image')
             this.imageLoading =  false
           },
           (error) => {
@@ -56,7 +53,6 @@ export class SellerProductComponent implements OnInit {
         .get(`sellerPro/findOne/${this.activatedRoute.snapshot.params.id}`)
         .subscribe(
           (data) => {
-            console.log(data)
             this.ProductForm = new FormGroup({
               name: new FormControl(data.data.name),
               description: new FormControl(data.data.description),
@@ -64,7 +60,6 @@ export class SellerProductComponent implements OnInit {
               price: new FormControl(data.data.price),
             });
             this.image = data.data.image
-            console.log(this.image,'this.image')
             this.imageLoading =  false
           },
           (error) => {
@@ -89,8 +84,6 @@ export class SellerProductComponent implements OnInit {
   onSelectFile(event: any) {
     const file = event.target.files && event.target.files[0];
     this.imageUrl = file
-    console.log(this.imageUrl)
-    console.log(file,'000000000')
     if (file) {
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -120,7 +113,6 @@ export class SellerProductComponent implements OnInit {
       image: this.image,
       addedBy: this.userId
     }
-    console.log(finalObject)
     this.apiService.add('sellerPro/add',finalObject).subscribe((resp)=>{
     })
   }
@@ -156,7 +148,6 @@ export class SellerProductComponent implements OnInit {
       image: this.image,
       addedBy: this.userId
     }
-    console.log(finalObject)
     this.apiService.edit(`sellerPro/edit/${this.activatedRoute.snapshot.params.id}`,finalObject).subscribe((resp)=>{
     })
   }

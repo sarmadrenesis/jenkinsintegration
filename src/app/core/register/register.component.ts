@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
         .get(`users/findSingleUser/${this.activatedRoute.snapshot.params.id}`)
         .subscribe(
           (data) => {
-            console.log(data)
             this.registerForm = new FormGroup({
               firstName: new FormControl(data.data.firstName),
               lastName: new FormControl(data.data.lastName),
@@ -47,7 +46,6 @@ export class RegisterComponent implements OnInit {
         .get(`users/findSingleUser/${this.activatedRoute.snapshot.params.id}`)
         .subscribe(
           (data) => {
-            console.log(data)
             this.registerForm = new FormGroup({
               firstName: new FormControl(data.data.firstName),
               lastName: new FormControl(data.data.lastName),

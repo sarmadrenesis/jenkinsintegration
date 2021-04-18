@@ -58,14 +58,12 @@ export class SingleUserProComponent implements OnInit {
     this.apiService.get('sellerPro/all').subscribe((resp)=>{
       let arr: any[] = []
       resp.data.forEach((element:any) => {
-        console.log(element,'element')
         if(element.addedBy._id ===  this.userID){
           arr.push(element)
         }
       });
       this.rowData = arr
       this.pageLoading = false
-      console.log(this.rowData,'single user products')
       this.pageLoading = false
     })
   }

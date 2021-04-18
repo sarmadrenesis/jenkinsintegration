@@ -57,7 +57,6 @@ export class SellerDashboardComponent implements OnInit {
     this.apiService.get('sellerPro/all').subscribe((resp)=>{
       let arr: any[] = []
       resp.data.forEach((element:any) => {
-        console.log(element,'element')
         if(element.addedBy._id ===  this.userID){
           arr.push(element)
         }
