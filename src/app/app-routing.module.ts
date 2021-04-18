@@ -8,6 +8,9 @@ import { LoginComponent } from './core/login/login.component';
 import { UsersComponent } from './admin/users/users.component';
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 import { SellerProductComponent } from './core/seller-product/seller-product.component';
+import { BuyersComponent } from './admin/buyers/buyers.component';
+import { SellersComponent } from './admin/sellers/sellers.component';
+import { SingleUserProComponent } from './core/single-user-pro/single-user-pro.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,8 @@ const routes: Routes = [
   {path : 'buyer-dashboard' , component : BuyerDashboardComponent},
   {path : 'admin-dashboard' , component : AdminDashboardComponent , children:[ 
     {path : 'users' , component:UsersComponent },
+    {path : 'sellers' , component:SellersComponent },
+    {path:'sellers/:id',component:SingleUserProComponent},
   ] },
 
   {path : 'login' , component : LoginComponent},
@@ -23,7 +28,12 @@ const routes: Routes = [
   {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } },
 
   {path : 'seller' , component : SellerComponent},
-  {path : 'sellerProduct' , component : SellerProductComponent},
+  
+  {path : 'sellerProduct' , component : SellerProductComponent , data: { mode: 'add' }},
+  {path : 'sellerProduct:view/:id' , component : SellerProductComponent , data: { mode: 'view' }},
+  {path : 'sellerProduct:edit/:id' , component : SellerProductComponent, data: { mode: 'edit' }},
+
+
   { path: '**', redirectTo: '/' },
 ];
 

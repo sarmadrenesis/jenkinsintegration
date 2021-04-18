@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-name-render',
   templateUrl: './name-render.component.html',
   styleUrls: ['./name-render.component.scss']
 })
-export class NameRenderComponent implements OnInit {
+export class NameRenderComponent {
 
-  constructor() { }
+  id : any
+  firstName: any
+  constructor(private activatedRoute: ActivatedRoute,public router:Router) {}
 
-  ngOnInit(): void {
+  agInit(params:any): void {
+    this.id = params.data._id
+    this.firstName  = params.data.firstName
   }
 
 }

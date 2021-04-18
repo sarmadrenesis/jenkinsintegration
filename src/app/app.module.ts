@@ -37,6 +37,9 @@ import { ActionsCellRendererComponent } from './core/ag-grid/actions-cell-render
 import { SellerComponent } from './theme-assets/pages/seller/seller.component';
 import { SellerProductComponent } from './core/seller-product/seller-product.component';
 import { PopupComponent } from './core/popup/popup.component';
+import { SellersComponent } from './admin/sellers/sellers.component';
+import { BuyersComponent } from './admin/buyers/buyers.component';
+import { SingleUserProComponent } from './core/single-user-pro/single-user-pro.component';
 
 
 @NgModule({
@@ -68,7 +71,10 @@ import { PopupComponent } from './core/popup/popup.component';
     NameRenderComponent,
     SellerComponent,
     SellerProductComponent,
-    PopupComponent
+    PopupComponent,
+    SellersComponent,
+    BuyersComponent,
+    SingleUserProComponent
   ],
   imports: [
     BrowserModule,

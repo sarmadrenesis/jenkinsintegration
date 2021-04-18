@@ -49,8 +49,11 @@ export class LoginComponent implements OnInit {
           text: resp.message,
         });
         localStorage.setItem('token', resp.data)
+        debugger
         if (resp.role.roleName === 'admin') {
           this.router.navigateByUrl('/admin-dashboard')
+        }else if(resp.role.roleName === 'seller'){
+          this.router.navigateByUrl('/seller-dashboard')
         }
       } else {
         Swal.fire({

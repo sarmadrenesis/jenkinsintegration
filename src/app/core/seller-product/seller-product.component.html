@@ -1,11 +1,11 @@
 <div class="customer_login">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="!isPageLoading">
             <!--login area start-->
             <div class="col-lg-3 col-md-3"></div>
             <div class="col-lg-6 col-md-6">
                 <div class="account_form">
-                    <h2>Add New Product</h2>
+                    <h2>{{heading}}</h2>
                     <form [formGroup]="ProductForm">
                         <p>
                             <label>Name <span>*</span></label>
@@ -39,9 +39,9 @@
                         
                        <p>
                         <label>Image <span>*</span></label>
-                        <input type="file" accept="image/*" (change)="changeListener($event)" parentForm="ProductForm" formControlName="image">
+                        <input type="file" *ngIf="heading !== 'View Product'" accept="image/*" (change)="changeListener($event)" parentForm="ProductForm" formControlName="image">
                        </p>
-                       <div *ngIf="image">
+                       <div *ngIf="!imageLoading">
                         <img src="{{image}}" alt="">
                       </div>
                        <div *ngIf="submitted && f.image.errors">
@@ -51,8 +51,11 @@
                         </div>
                            
 
-                        <div class="login_submit">
+                        <div class="login_submit" *ngIf="heading !== 'View Product' && heading !== 'Edit Product'">
                             <button  (click)="save()" >Submit</button>
+                        </div>
+                        <div class="login_submit" *ngIf="heading === 'Edit Product'">
+                            <button  (click)="Update()" >Update</button>
                         </div>
 
                     </form>
