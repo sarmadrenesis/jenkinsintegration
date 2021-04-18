@@ -16,7 +16,7 @@ export class BlogSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllProducts()
+    // this.getAllProducts()
   }
 
   getAllProducts(){
