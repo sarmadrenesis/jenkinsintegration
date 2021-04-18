@@ -16,12 +16,12 @@ export class DashboardGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let token = this.sharedService.getUserToken() ;
-      let access = localStorage.getItem('chrome')
+      let access = localStorage.getItem('role')
       if (token == null){
         this.router.navigateByUrl('/login')
       }
       else{
-        if(access != "true"){
+        if(access != "admin"){
           Swal.fire({
             icon: 'error',
             title: 'Oops...',

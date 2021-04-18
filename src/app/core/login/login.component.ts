@@ -28,6 +28,11 @@ export class LoginComponent implements OnInit {
     let token = localStorage.getItem('token')
     if(token){
       this.router.navigateByUrl('/')
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Already LogedIn...!",
+      })
     }
   }
   get f() { return this.loginForm.controls; }
@@ -49,7 +54,7 @@ export class LoginComponent implements OnInit {
           text: resp.message,
         });
         localStorage.setItem('token', resp.data)
-        debugger
+        localStorage.setItem('role',resp.role.roleName)
         if (resp.role.roleName === 'admin') {
           this.router.navigateByUrl('/admin-dashboard')
         }else if(resp.role.roleName === 'seller'){

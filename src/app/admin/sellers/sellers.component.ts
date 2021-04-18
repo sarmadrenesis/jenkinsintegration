@@ -52,9 +52,9 @@ export class SellersComponent implements OnInit {
     this.showGrid =  false
     this.apiService.get(`users/allUser`).subscribe(result=>{
       result.data.forEach((element:any) => {
-        console.log(element)
-       this.rowData.push({"_id":element._id ,"firstName" : element.firstName , "lastName": element.lastName , "email" : element.email,"isVerified":element.isVerified,"roleName" : element.role.roleName })
-       console.log(this.rowData)
+        if(element.role.roleName === 'seller'){
+          this.rowData.push({"_id":element._id ,"firstName" : element.firstName , "lastName": element.lastName , "email" : element.email,"isVerified":element.isVerified,"roleName" : element.role.roleName })
+        }
        this.showGrid =  true
      });
     })

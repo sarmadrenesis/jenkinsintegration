@@ -8,8 +8,12 @@ import { PopupComponent } from 'src/app/core/popup/popup.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) { }
+  access : any
+  haveAccess : any
+  constructor(public dialog: MatDialog) {
+    this.access = localStorage.getItem('role')
+    this.haveAccess = localStorage.getItem('token')
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,45 @@
-<p>seller-dashboard works!</p>
+<app-top-bar></app-top-bar>
+<section class="blog_section">
+    <div class="product_conatiner3">
+        <div class="section_title">
+           <h2>New Products</h2>
+        </div>
+        <div class="section_content">
+            <h2>New Products</h2>
+         </div>
+    </div> 
+
+    <div class="product_conatiner3">
+        <div class="section_title">
+           <h2>All Products</h2>
+        </div>
+        <div class="section_content">
+            <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                  </div>
+                  <div class="card-content">
+                    <div class="card-body">
+                        <ng-container *ngIf="!pageLoading">
+                          <ag-grid-angular
+                              #agGrid
+                              style="width: 100%; height: calc(100vh - 190px)"
+                              class="ag-theme-alpine yoyo "
+                              pagination="true"
+                              [rowData]="rowData"
+                              [columnDefs]="columnDefs"
+                              [defaultColDef]="defaultColDef"
+                              [frameworkComponents]="frameworkComponents"
+                            >
+                          </ag-grid-angular>
+                        </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+         </div>
+    </div> 
+</section>
+
+

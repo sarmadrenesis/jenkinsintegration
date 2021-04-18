@@ -11,24 +11,23 @@ import { SellerProductComponent } from './core/seller-product/seller-product.com
 import { BuyersComponent } from './admin/buyers/buyers.component';
 import { SellersComponent } from './admin/sellers/sellers.component';
 import { SingleUserProComponent } from './core/single-user-pro/single-user-pro.component';
+import { DashboardGuard } from './guards/dashboard.guard';
 
 
 const routes: Routes = [
   {path : 'seller-dashboard' , component : SellerDashboardComponent},
   {path : 'buyer-dashboard' , component : BuyerDashboardComponent},
-  {path : 'admin-dashboard' , component : AdminDashboardComponent , children:[ 
+  {path : 'admin-dashboard' , component : AdminDashboardComponent ,canActivate: [DashboardGuard], children:[ 
     {path : 'users' , component:UsersComponent },
     {path : 'sellers' , component:SellersComponent },
     {path:'sellers/:id',component:SingleUserProComponent},
-
     {path : 'buyers' , component:BuyersComponent },
-    
   ] },
 
   {path : 'login' , component : LoginComponent},
-  {path : 'register' , component : RegisterComponent,data: { mode: 'add' } },
-  {path : 'register:view/:id' , component : RegisterComponent,data: { mode: 'view' } },
-  {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } },
+  {path : 'register' , component : RegisterComponent,data: { mode: 'add' } ,canActivate: [DashboardGuard]},
+  {path : 'register:view/:id' , component : RegisterComponent,data: { mode: 'view' } ,canActivate: [DashboardGuard]},
+  {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } ,canActivate: [DashboardGuard]},
 
   {path : 'seller' , component : SellerComponent},
   
