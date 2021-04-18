@@ -20,6 +20,9 @@ const routes: Routes = [
     {path : 'users' , component:UsersComponent },
     {path : 'sellers' , component:SellersComponent },
     {path:'sellers/:id',component:SingleUserProComponent},
+
+    {path : 'buyers' , component:BuyersComponent },
+    
   ] },
 
   {path : 'login' , component : LoginComponent},
