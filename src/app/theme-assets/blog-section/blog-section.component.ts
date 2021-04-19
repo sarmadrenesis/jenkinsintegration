@@ -16,7 +16,9 @@ export class BlogSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getAllProducts()
+    if(this.router.url === '/'){
+      this.getAllProducts()
+    }
   }
 
   getAllProducts(){

@@ -84,15 +84,15 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" *ngIf="haveAccess">
+                    <div class="col-lg-3 col-md-6 col-sm-6" *ngIf="haveAccess" style="color: white;">
                         <div class="categories_menu">
                             <div class="categories_title" *ngIf="access==='admin'">
                                 <a routerLink="admin-dashboard">Dashboard</a>  
-                                <span> : Login userName</span>
+                                <!-- <span> : Login userName</span> -->
                             </div>
                             <div class="categories_title" *ngIf="access==='seller'">
                                 <a routerLink="seller-dashboard">Dashboard</a>  
-                                <span> : Login userName</span>
+                                <!-- <span> : Login userName</span> -->
                             </div>
                         </div>
                     </div>
