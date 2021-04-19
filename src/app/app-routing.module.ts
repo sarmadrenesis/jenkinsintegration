@@ -25,9 +25,9 @@ const routes: Routes = [
   ] },
 
   {path : 'login' , component : LoginComponent},
-  {path : 'register' , component : RegisterComponent,data: { mode: 'add' } ,canActivate: [DashboardGuard]},
-  {path : 'register:view/:id' , component : RegisterComponent,data: { mode: 'view' } ,canActivate: [DashboardGuard]},
-  {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } ,canActivate: [DashboardGuard]},
+  {path : 'register' , component : RegisterComponent,data: { mode: 'add' } },
+  {path : 'register:view/:id' , component : RegisterComponent,data: { mode: 'view' } },
+  {path : 'register:edit/:id' , component : RegisterComponent,data: { mode: 'edit' } },
 
   {path : 'seller' , component : SellerComponent},
   
